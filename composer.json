@@ -14,7 +14,8 @@
   ],
   "require": {
     "php": ">=5.4",
-    "dwo/flagging": "0.2.*"
+    "dwo/flagging": "0.2.*",
+    "symfony/expression-language": "~2.6"
   },
   "autoload": {
     "psr-0": {"Dwo\\FlaggingVoters": "src/"}
