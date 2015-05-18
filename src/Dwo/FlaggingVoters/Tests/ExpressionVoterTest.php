@@ -8,13 +8,29 @@ use Dwo\FlaggingVoters\Voters\RandomVoter;
 
 class ExpressionVoterTest extends \PHPUnit_Framework_TestCase
 {
+    public function test()
+    {
+        $expressionLanguage = $this->getMockBuilder('Symfony\Component\ExpressionLanguage\ExpressionLanguage')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $expressionLanguage->expects(self::once())
+            ->method('evaluate')
+            ->with('foo',array('foo'=>'bar'))
+            ->willReturn(true);
+
+        $voter = new ExpressionVoter($expressionLanguage);
+        $voteResult = $voter->vote(array('foo'), new Context(array('foo'=>'bar')));
+
+        self::assertTrue($voteResult);
+    }
+
     /**
      * @dataProvider provider
      */
-    public function test($result, $expression, array $params = array())
+    public function testProvider($result, $expression, array $params = array())
     {
         $voter = new ExpressionVoter();
-        $voteResult = $voter->vote($expression, new Context($params));
+        $voteResult = $voter->vote(array($expression), new Context($params));
 
         self::assertEquals($result, $voteResult, $expression.' | '.json_encode($params));
     }

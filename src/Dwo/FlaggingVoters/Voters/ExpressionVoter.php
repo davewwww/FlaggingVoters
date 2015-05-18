@@ -4,6 +4,7 @@ namespace Dwo\FlaggingVoters\Voters;
 
 use Dwo\Flagging\Context\Context;
 use Dwo\Flagging\Voter\VoterInterface;
+use Dwo\Flagging\Walker;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
 /**
@@ -31,9 +32,12 @@ class ExpressionVoter implements VoterInterface
      */
     public function vote($config, Context $context)
     {
-        $values = $context->getParams();
-
-        return $this->getExpressionLanguage()->evaluate($config, $values);
+        return Walker::walkOr(
+            $config,
+            function ($expression) use ($context) {
+                return $this->getExpressionLanguage()->evaluate($expression, $context->getParams());
+            }
+        );
     }
 
     /**
