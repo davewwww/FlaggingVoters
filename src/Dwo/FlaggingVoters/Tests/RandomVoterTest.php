@@ -14,4 +14,12 @@ class RandomVoterTest extends \PHPUnit_Framework_TestCase
         self::assertTrue($voter->vote(100, new Context()));
         self::assertFalse($voter->vote(0, new Context()));
     }
+
+    public function testAsArray()
+    {
+        $voter = new RandomVoter();
+
+        self::assertTrue($voter->vote([100], new Context()));
+        self::assertFalse($voter->vote([0], new Context()));
+    }
 }

@@ -15,6 +15,8 @@ class RandomVoter implements VoterInterface
      */
     public function vote($config, Context $context)
     {
-        return mt_rand(0, 100) <= (int) $config;
+        $config = (int) (is_array($config) ? current($config) : $config);
+
+        return mt_rand(0, 100) <= $config;
     }
 }
