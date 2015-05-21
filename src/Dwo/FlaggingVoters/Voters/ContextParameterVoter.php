@@ -7,6 +7,8 @@ use Dwo\Flagging\Voter\VoterInterface;
 use Dwo\Flagging\Walker;
 
 /**
+ * @deprecated use ContextPropertyVoter
+ *
  * @author David Wolter <david@lovoo.com>
  */
 class ContextParameterVoter implements VoterInterface
@@ -14,14 +16,9 @@ class ContextParameterVoter implements VoterInterface
     /**
      * @var string
      */
-    protected $name;
-    /**
-     * @var string
-     */
     protected $parameterKey;
 
     /**
-     * @param string $name
      * @param string $parameterKey
      */
     public function __construct($name, $parameterKey)
