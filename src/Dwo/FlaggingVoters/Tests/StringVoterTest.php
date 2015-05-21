@@ -21,6 +21,8 @@ class StringVoterTest extends \PHPUnit_Framework_TestCase
     {
         return array(
             array(true, 'prod', 'prod'),
+            array(false, '!prod', 'prod'),
+            array(true, '!prod', 'dev'),
             array(true, ['dev', 'prod'], 'prod'),
             array(false, 'dev', 'prod'),
             array(false, ['dev', 'prod'], 'test'),
