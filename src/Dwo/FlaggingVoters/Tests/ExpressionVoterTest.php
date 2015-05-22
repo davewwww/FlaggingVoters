@@ -4,7 +4,6 @@ namespace Dwo\FlaggingVoters\Tests;
 
 use Dwo\Flagging\Context\Context;
 use Dwo\FlaggingVoters\Voters\ExpressionVoter;
-use Dwo\FlaggingVoters\Voters\RandomVoter;
 
 class ExpressionVoterTest extends \PHPUnit_Framework_TestCase
 {

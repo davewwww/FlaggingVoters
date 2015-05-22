@@ -3,10 +3,7 @@
 namespace Dwo\FlaggingVoters\Tests;
 
 use Dwo\Flagging\Context\Context;
-use Dwo\FlaggingVoters\Tests\Fixtures\FooContext;
-use Dwo\FlaggingVoters\Voters\ContextParameterVoter;
 use Dwo\FlaggingVoters\Voters\DateRangeVoter;
-use Dwo\SimpleAccessor\Tests\Fixtures\User;
 
 class DateRangeVoterTest extends \PHPUnit_Framework_TestCase
 {
