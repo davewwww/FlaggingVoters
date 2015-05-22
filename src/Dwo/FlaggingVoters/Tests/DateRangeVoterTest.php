@@ -13,21 +13,20 @@ class DateRangeVoterTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider provider
      */
-    public function test($result, array $config, $dateString = 'now', Context $context = null, $pathContext = null)
+    public function test($result, array $config, $dateNow = null)
     {
-        $dateNow = new \DateTime($dateString ?: 'now');
+        $voter = new DateRangeVoter();
+        if(null !== $dateNow) {
+            $voter->setDateNow(new \DateTime($dateNow));
+        }
 
-        $voter = new DateRangeVoter($dateNow, $pathContext);
-        $voteResult = $voter->vote($config, $context ?: new Context());
+        $voteResult = $voter->vote($config, new Context());
 
-        self::assertEquals($result, $voteResult, $dateString.' == '.json_encode($config));
+        self::assertEquals($result, $voteResult, $dateNow.' == '.json_encode($config));
     }
 
     public function provider()
     {
-        $fooContext = new FooContext();
-        $fooContext->setUser(new User(new \DateTime('-12 hours')));
-
         return array(
             array(true, array('from' => '-1 day')),
             array(true, array('to' => '+1 day')),
@@ -40,7 +39,7 @@ class DateRangeVoterTest extends \PHPUnit_Framework_TestCase
             array(true, array('from' => '-12 day', 'to' => '-10 day'), '-11 day'),
             array(false, array('from' => '-12 day', 'to' => '-10 day'), '-13 day'),
 
-            array(true, array('from' => '-13 hours'), null, $fooContext, 'user.date'),
+            array(false, array()),
         );
     }
 }
