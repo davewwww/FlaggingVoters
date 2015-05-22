@@ -39,6 +39,7 @@ class DateRangeContextPropertyVoter extends DateRangeVoter
         echo PHP_EOL.json_encode(array($config, $this->contextPropertyPath, $d)).PHP_EOL;
 
         if (null === $propertyValue) {
+            var_dump($context);
             return false;
         }
 
