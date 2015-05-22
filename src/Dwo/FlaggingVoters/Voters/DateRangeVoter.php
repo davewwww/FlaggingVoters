@@ -25,14 +25,6 @@ class DateRangeVoter implements VoterInterface
         $from = isset($config['from']) ? $config['from'] : null;
         $to = isset($config['to']) ? $config['to'] : null;
 
-        $d = function($d) {
-            if($d instanceof \DateTime) {
-                return $d->format('Y-m-d H:i');
-            }
-            return $d;
-        };
-        echo $d($from) .' | '. $d($this->getDateNow()).' | '. $d($to) . PHP_EOL;
-
         return Comparator::compare('date_range', $from, $to, $this->getDateNow());
     }
 
