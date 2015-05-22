@@ -5,7 +5,7 @@ namespace Dwo\FlaggingVoters\Tests;
 use Dwo\Flagging\Context\Context;
 use Dwo\FlaggingVoters\Tests\Fixtures\FooContext;
 use Dwo\FlaggingVoters\Voters\DateRangeContextPropertyVoter;
-use Dwo\SimpleAccessor\Tests\Fixtures\User;
+use Dwo\FlaggingVoters\Tests\Fixtures\User;
 
 class DateRangeContextPropertyVoterTest extends \PHPUnit_Framework_TestCase
 {
@@ -28,7 +28,7 @@ class DateRangeContextPropertyVoterTest extends \PHPUnit_Framework_TestCase
     public function provider()
     {
         $fooContext = new FooContext();
-        $fooContext->setUser(new User(new \DateTime('-12 hours')));
+        $fooContext->setUser(new User('foobert', new \DateTime('-12 hours')));
 
         return array(
             array(true, array('from' => '-13 hours'), 'user.date', $fooContext),
