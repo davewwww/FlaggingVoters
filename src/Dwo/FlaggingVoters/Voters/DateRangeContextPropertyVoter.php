@@ -11,14 +11,14 @@ use Dwo\SimpleAccessor\SimpleAccessor;
 class DateRangeContextPropertyVoter extends DateRangeVoter
 {
     /**
-     * @var string|null
+     * @var string
      */
     protected $contextPropertyPath;
 
     /**
-     * @param string|null $contextPropertyPath
+     * @param string $contextPropertyPath
      */
-    public function __construct($contextPropertyPath = null)
+    public function __construct($contextPropertyPath)
     {
         $this->contextPropertyPath = $contextPropertyPath;
     }
@@ -28,9 +28,12 @@ class DateRangeContextPropertyVoter extends DateRangeVoter
      */
     public function vote($config, Context $context)
     {
-        if (null !== $this->contextPropertyPath) {
-            $this->setDateNow(SimpleAccessor::getValueFromPath($context, $this->contextPropertyPath));
+        $propertyValue = SimpleAccessor::getValueFromPath($context, $this->contextPropertyPath);
+        if (null === $propertyValue) {
+            return false;
         }
+
+        $this->setDateNow($propertyValue);
 
         return parent::vote($config, $context);
     }

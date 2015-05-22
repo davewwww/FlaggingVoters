@@ -21,12 +21,12 @@ class ContextPropertyVoter implements VoterInterface
     /**
      * @var null|string
      */
-    protected $walkType;
-
+    protected $operator;
+    
     /**
      * @var null|string
      */
-    protected $operator;
+    protected $walkType;
 
     /**
      * @param string|array $propertyPaths
@@ -45,15 +45,7 @@ class ContextPropertyVoter implements VoterInterface
      */
     public function vote($config, Context $context)
     {
-        $propertyValue = null;
-
-        foreach ($this->propertyPaths as $path) {
-            if (null !== $propertyValue = SimpleAccessor::getValueFromPath($context, $path)) {
-                break;
-            }
-        }
-
-        if (null === $propertyValue) {
+        if(null === $propertyValue = $this->getPropertyValue($context)) {
             return false;
         }
 
@@ -65,4 +57,24 @@ class ContextPropertyVoter implements VoterInterface
             $this->walkType,
             true
         );
-    }}
+    }
+
+    /**
+     * @param Context $context
+     *
+     * @return mixed|null
+     */
+    protected function getPropertyValue(Context $context) {
+
+        $propertyValue = null;
+
+        foreach ($this->propertyPaths as $path) {
+            if (null !== $propertyValue = SimpleAccessor::getValueFromPath($context, $path)) {
+                break;
+            }
+        }
+
+        return $propertyValue;
+    }
+
+}
