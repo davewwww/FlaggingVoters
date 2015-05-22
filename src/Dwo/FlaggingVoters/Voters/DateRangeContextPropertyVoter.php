@@ -28,8 +28,7 @@ class DateRangeContextPropertyVoter extends DateRangeVoter
      */
     public function vote($config, Context $context)
     {
-        $propertyValue = SimpleAccessor::getValueFromPath($context, $this->contextPropertyPath);
-        if (null === $propertyValue) {
+        if (null === $propertyValue = SimpleAccessor::getValueFromPath($context, $this->contextPropertyPath)) {
             return false;
         }
 

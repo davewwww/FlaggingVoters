@@ -32,7 +32,11 @@ class DateRangeContextPropertyVoterTest extends \PHPUnit_Framework_TestCase
 
         return array(
             array(true, array('from' => '-13 hours'), 'user.date', $fooContext),
+            array(false, array('from' => '-11 hours'), 'user.date', $fooContext),
+
             array(true, array('to' => '-11 hours'), 'user.date', $fooContext),
+            array(false, array('to' => '-13 hours'), 'user.date', $fooContext),
+
             array(true, array('from' => '-13 hours', 'to' => '-11 hours'), 'user.date', $fooContext),
 
             array(false, array('from' => '-13 hours'), 'user.foo', $fooContext),
