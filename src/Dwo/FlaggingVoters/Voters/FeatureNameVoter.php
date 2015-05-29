@@ -8,7 +8,7 @@ use Dwo\Flagging\Voter\VoterInterface;
 use Dwo\Flagging\Walker;
 
 /**
- * @author David Wolter <david@lovoo.com>
+ * @author Dave Www <davewwwo@gmail.com>
  */
 class FeatureNameVoter implements VoterInterface
 {

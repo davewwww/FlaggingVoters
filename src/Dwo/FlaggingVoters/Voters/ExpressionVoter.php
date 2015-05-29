@@ -8,7 +8,7 @@ use Dwo\Flagging\Walker;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
 /**
- * @author David Wolter <david@lovoo.com>
+ * @author Dave Www <davewwwo@gmail.com>
  */
 class ExpressionVoter implements VoterInterface
 {

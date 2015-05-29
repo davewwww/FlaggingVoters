@@ -9,7 +9,7 @@ use Dwo\Flagging\Voter\FilterGroupsVoter;
 use Dwo\Flagging\Voter\VoterInterface;
 
 /**
- * @author David Wolter <david@lovoo.com>
+ * @author Dave Www <davewwwo@gmail.com>
  */
 class FiltersVoter implements VoterInterface
 {

@@ -3,7 +3,7 @@
 namespace Dwo\FlaggingVoters\Tests\Fixtures;
 
 /**
- * @author David Wolter <david@lovoo.com>
+ * @author Dave Www <davewwwo@gmail.com>
  */
 class User
 {

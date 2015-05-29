@@ -9,7 +9,7 @@ use Dwo\Flagging\Walker;
 /**
  * @deprecated use ContextPropertyVoter
  *
- * @author David Wolter <david@lovoo.com>
+ * @author Dave Www <davewwwo@gmail.com>
  */
 class ContextParameterVoter implements VoterInterface
 {

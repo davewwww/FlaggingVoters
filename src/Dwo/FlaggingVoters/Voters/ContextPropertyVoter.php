@@ -9,7 +9,7 @@ use Dwo\Flagging\Walker;
 use Dwo\SimpleAccessor\SimpleAccessor;
 
 /**
- * @author David Wolter <david@lovoo.com>
+ * @author Dave Www <davewwwo@gmail.com>
  */
 class ContextPropertyVoter implements VoterInterface
 {

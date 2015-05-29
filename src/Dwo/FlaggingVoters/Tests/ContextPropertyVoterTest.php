@@ -7,7 +7,7 @@ use Dwo\FlaggingVoters\Tests\Fixtures\User;
 use Dwo\FlaggingVoters\Voters\ContextPropertyVoter;
 
 /**
- * @author David Wolter <david@lovoo.com>
+ * @author Dave Www <davewwwo@gmail.com>
  */
 class ContextPropertyVoterTest extends \PHPUnit_Framework_TestCase
 {

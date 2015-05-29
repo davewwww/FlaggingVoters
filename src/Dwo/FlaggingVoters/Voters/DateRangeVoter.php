@@ -8,7 +8,7 @@ use Dwo\Flagging\Context\Context;
 use Dwo\Flagging\Voter\VoterInterface;
 
 /**
- * @author David Wolter <david@lovoo.com>
+ * @author Dave Www <davewwwo@gmail.com>
  */
 class DateRangeVoter implements VoterInterface
 {

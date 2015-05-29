@@ -8,7 +8,7 @@ use Usac\Campaign\Model\CampaignInterface;
 use Usac\Project\Model\ProjectAwareTrait;
 
 /**
- * @author David Wolter <david@lovoo.com>
+ * @author Dave Www <davewwwo@gmail.com>
  */
 class FooContext extends Context
 {

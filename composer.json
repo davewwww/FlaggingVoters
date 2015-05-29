@@ -2,15 +2,15 @@
   "name": "dwo/flagging_voters",
   "description": ":TODO:",
   "keywords": ["feature", "flagging", "toggle", "flipper", "switch", "decider", "voter"],
-  "homepage": "http://www.lovoo.com",
+  "homepage": "https://github.com/davewwww",
   "type": "library",
   "license": "MIT",
   "authors": [
-    {
-      "name": "David Wolter",
-      "email": "david@lovoo.com",
-      "homepage": "http://www.lovoo.com"
-    }
+	{
+		"name": "Dave Wo",
+		"email": "davewwwo@gmail.com",
+		"homepage": "https://github.com/davewwww"
+	}
   ],
   "require": {
     "php": ">=5.4",
