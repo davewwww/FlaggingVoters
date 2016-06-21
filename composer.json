@@ -17,7 +17,7 @@
     "dwo/flagging": "0.2.*",
     "symfony/expression-language": ">=2.6",
     "dwo/comparator": "~1.0",
-    "dwo/simple_accessor": "0.1.*"
+    "dwo/simple_accessor": ">=0.1"
   },
   "autoload": {
     "psr-0": {"Dwo\\FlaggingVoters": "src/"}
