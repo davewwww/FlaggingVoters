@@ -28,7 +28,16 @@ class HeaderPropertyVoterTest extends \PHPUnit_Framework_TestCase
         self::assertFalse($voter->vote(['bar'], new Context()));
     }
 
-    public function testVersionOk()
+    public function testVersionEqualsOk()
+    {
+        $_SERVER['x-version'] = '1.2.9';
+
+        $voter = new HeaderPropertyVoter('x-version', 'version');
+
+        self::assertTrue($voter->vote(['1.2.9'], new Context()));
+    }
+
+    public function testVersionGreaterOk()
     {
         $_SERVER['x-version'] = '1.3.1';
 
@@ -37,7 +46,7 @@ class HeaderPropertyVoterTest extends \PHPUnit_Framework_TestCase
         self::assertTrue($voter->vote(['1.2.9'], new Context()));
     }
 
-    public function testVersionFalse()
+    public function testVersionLowerFalse()
     {
         $_SERVER['x-version'] = '1.3.1';
 

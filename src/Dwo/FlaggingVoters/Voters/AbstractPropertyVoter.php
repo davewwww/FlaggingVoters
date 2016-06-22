@@ -26,15 +26,22 @@ abstract class AbstractPropertyVoter
     protected $walkType;
 
     /**
+     * @var null|string
+     */
+    protected $thirdCompareParam;
+
+    /**
      * @param string|array $propertyPaths
      * @param string|null  $operator
      * @param string|null  $walkType
+     * @param string|null  $thirdCompareParam
      */
-    public function __construct($propertyPaths, $operator = null, $walkType = null)
+    public function __construct($propertyPaths, $operator = null, $walkType = null, $thirdCompareParam = null)
     {
         $this->propertyPaths = (array) $propertyPaths;
         $this->operator = $operator ?: 'default';
         $this->walkType = $walkType ?: Walker::WALK_OR;
+        $this->thirdCompareParam = $thirdCompareParam;
     }
 
     /**
@@ -45,7 +52,7 @@ abstract class AbstractPropertyVoter
         return Walker::walk(
             $config,
             function ($entry) use ($propertyValue) {
-                return Comparator::compare($this->operator, $entry, $propertyValue);
+                return Comparator::compare($this->operator, $entry, $propertyValue, $this->thirdCompareParam);
             },
             $this->walkType,
             true
